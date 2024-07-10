@@ -10,5 +10,13 @@ const NewsController = {
       data: result,
     });
   },
+  //给出推荐新闻，limit为限制数量，目前暂时为最新编辑过的4条
+  getRecommend: async (req, res) => {
+    const result = await NewsService.getRecommend({ limit: req.query.limit });
+    res.send({
+      ActionType: "OK",
+      data: result,
+    });
+  },
 };
 module.exports = NewsController;
